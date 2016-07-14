@@ -1,0 +1,8 @@
+{{#power-select
+  selected=selectedItem
+  options=possibleItemAttrs
+  onchange=(action "selectItem")
+  as |item|
+}}
+  {{item}}
+{{/power-select}}

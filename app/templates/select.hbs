@@ -1,13 +1,20 @@
-{{#if selectedItem}}
-  <h1>You selected {{selectedItem}}</h1>
-  <div>STATES : {{states}}</div>
+{{#if currentState}}
+  <h1>WORKING</h1>
+  <h3>Another form with another select in it</h3>
+  <form>
+    {{input-fetched-list
+      constantType="criteria"
+      selectedItem=currentCriteria
+      selectItem=(action "selectCriteria")
+    }}
+    <button type="submit" name="button">Submit</button>
+  </form>
 {{else}}
-  {{#power-select
-    selected=selectedItem
-    options=possibleItems
-    onchange=(action "selectItem")
-    as |item|
-  }}
-    {{item}}
-  {{/power-select}}
+  <div class="state-wrapper">
+    {{input-fetched-list
+      constantType="states"
+      selectedItem=currentState
+      selectItem=(action "selectState")
+    }}
+  </div>
 {{/if}}
