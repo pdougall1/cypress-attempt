@@ -1,0 +1,13 @@
+{{#if selectedItem}}
+  <h1>You selected {{selectedItem}}</h1>
+  <div>STATES : {{states}}</div>
+{{else}}
+  {{#power-select
+    selected=selectedItem
+    options=possibleItems
+    onchange=(action "selectItem")
+    as |item|
+  }}
+    {{item}}
+  {{/power-select}}
+{{/if}}
